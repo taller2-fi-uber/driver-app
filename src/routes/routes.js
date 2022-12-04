@@ -7,7 +7,7 @@ const router = express.Router();
 router.get('/ping', (_, res) => res.status(200).send({ message: 'Pong' }));
 
 // Create a driver
-router.post('/drivers', (req, res) => {
+router.post('/drivers/:id', (req, res) => {
   controller.createDriver(req, res);
 });
 

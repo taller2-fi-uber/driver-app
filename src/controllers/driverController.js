@@ -49,7 +49,7 @@ const createDriver = async (req, res) => {
   try {
 
     const result = await service.createDriver(
-      req.body._id,
+      req.params.id,
       req.body.vehicle
     );
     res.status(201).send(result);
@@ -106,11 +106,11 @@ const rate = async (req, res) => {
   try {
     let updated
     try {
-      let result = (await service.getById(req.body.to)).toObject();
+      let result = (await service.getById(req.params.id)).toObject();
 
       const rate = (result.rating.rate * result.rating.count + req.body.qualification) / (result.rating.count + 1)
       const count = result.rating.count + 1;
-      updated = await service.rate(req.body.to, rate, count);
+      updated = await service.rate(req.params.id, rate, count);
     } catch (error) {
       const errorResponse = createErrorResponse(error);
       res.status(errorResponse.status).send(errorResponse.body);

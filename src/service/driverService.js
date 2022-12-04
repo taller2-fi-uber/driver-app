@@ -3,10 +3,10 @@ const Driver = require('../model/driverModel');
 
 // Creates a Driver
 const createDriver = async (
-  _id,
+  id,
   vehicle
 ) => Driver.create(new Driver({
-  _id,
+  id,
   vehicle
 }));
 
