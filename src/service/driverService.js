@@ -6,7 +6,7 @@ const createDriver = async (
   id,
   vehicle
 ) => Driver.create(new Driver({
-  id,
+  _id: id,
   vehicle
 }));
 
