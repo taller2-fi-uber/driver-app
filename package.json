@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/taller2-fi-uber/driver-app#readme",
   "dependencies": {
-    "dd-trace": "^3.5.0",
+    "dd-trace": "^3.9.1",
     "dotenv": "^16.0.3",
     "express": "^4.18.1",
     "helmet": "^6.0.0",

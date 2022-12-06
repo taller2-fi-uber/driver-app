@@ -17,4 +17,8 @@ app.use(express.json());
 // Routes
 app.use('/driver', routes);
 
+const tracer = require('dd-trace').init({
+    logInjection: true,
+  });
+
 module.exports = app;
