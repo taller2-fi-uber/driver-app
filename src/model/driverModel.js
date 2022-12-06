@@ -32,6 +32,10 @@ const Driver = model('Driver', new Schema({
       default: 1,
     },
   },
+  vip: {
+    type: Boolean,
+    default: false
+  },
 }, {
   timestamps: true,
   collection: 'drivers',

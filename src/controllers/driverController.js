@@ -132,6 +132,20 @@ const deleteById = async (req, res) => {
   }
 };
 
+const makeVIP = async (req, res) => {
+  try {
+    const result = (await service.getById(req.headers.user)).toObject();
+    if (result.vip) {
+      return res.status(400).send({ err: "INVALID_OPERATION", msg: 'User is already VIP' });
+    }
+    const updated = await service.makeVIP(req.headers.user);
+    return res.status(200).send(updated);
+  } catch (error) {
+    const errorResponse = createErrorResponse(error);
+    res.status(errorResponse.status).send(errorResponse.body);
+  }
+}
+
 module.exports = {
-  createDriver, getById, getAll, update, deleteById, rate
+  createDriver, getById, getAll, update, deleteById, rate, makeVIP
 };

@@ -58,6 +58,10 @@ const rate = async (_id, rate, count) => {
   return result;
 };
 
+const makeVIP = async (_id) => {
+  return Driver.findByIdAndUpdate(_id, { vip: true }, {new: true});
+}
+
 module.exports = {
-  createDriver, getById, getAll, update, deleteById, rate
+  createDriver, getById, getAll, update, deleteById, rate, makeVIP
 };

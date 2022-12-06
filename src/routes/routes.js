@@ -36,4 +36,9 @@ router.patch('/qualification/:id', (req, res) => {
   controller.rate(req, res);
 });
 
+// Delete an user
+router.patch('/vip', (req, res) => {
+  controller.makeVIP(req, res);
+});
+
 module.exports = router;
