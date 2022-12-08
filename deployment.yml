@@ -54,6 +54,12 @@ spec:
         image:  cqueirolo/driver-app:latest
         imagePullPolicy: Always
         env:
+        - name: DD_AGENT_HOST
+          valueFrom:
+            fieldRef:
+              fieldPath: status.hostIP
+        - name: DD_LOGS_INJECTION
+          value: "true"
         - name: MONGO_URL
           valueFrom:
             secretKeyRef:

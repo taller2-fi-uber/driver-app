@@ -67,6 +67,6 @@ jobs:
         PROJECT_ID: ${{ secrets.GKE_PROJECT }}
         APPLICATION_CREDENTIALS: ${{ secrets.GKE_SA_KEY }}
         CLUSTER_NAME: ${{ secrets.GKE_CLUSTER_NAME }}
-        ZONE_NAME: southamerica-west1
+        ZONE_NAME: southamerica-west1-a
       with:
         args: apply -f ./deployment.yml
