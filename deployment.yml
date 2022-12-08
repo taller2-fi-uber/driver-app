@@ -70,6 +70,16 @@ spec:
             secretKeyRef:
               name: driver-app
               key: node_env
+        - name: PAYMENTS_SERVICE
+          valueFrom:
+            secretKeyRef:
+              name: driver-app
+              key: payments_service
+        - name: USER_SERVICE
+          valueFrom:
+            secretKeyRef:
+              name: driver-app
+              key: user_service        
         resources:
           requests:
             cpu: 100m
