@@ -12,7 +12,7 @@ npm install
 Create an **.env** file in the project's root folder, and set the following variables:
 - MONGO_URL: The connection string of the mongo db
 - NODE_ENV: can be **development** or **production** 
-- PAYMENTS_SERVICE: The public address of the Users service (http://users-address.com) 
+- PAYMENTS_SERVICE: The public address of the Payments service (http://payment-address.com) 
 - USER_SERVICE: The public address of the Users service (http://users-address.com) 
 
 ## Usage
