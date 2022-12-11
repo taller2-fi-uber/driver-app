@@ -41,9 +41,9 @@ npm run lint
 **Build image:** docker build . -t drivers
 
 **Run container:** 
-docker run \
--e MONGO_URL=**(connection string)** \
--e NODE_ENV=**(development/production)** \
--e PAYMENTS_SERVICE=**(payments service url)** \
--e USER_SERVICE=**(user service url)** \
+docker run \\\
+-e MONGO_URL=**(connection string)** \\\
+-e NODE_ENV=**(development/production)** \\\
+-e PAYMENTS_SERVICE=**(payments service url)** \\\
+-e USER_SERVICE=**(user service url)** \\\
 -p **8080(external):8080(container)** drivers
