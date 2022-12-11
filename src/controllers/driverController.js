@@ -99,10 +99,6 @@ const rate = async (req, res) => {
     res.status(400).send({ err: "OUT_OF_RANGE", msg: 'Qualification must be between 0 and 5' });
     return
   }
-  if (req.headers.type !== 'driver') {
-    res.status(400).send({ err: "INVALID_OPERATION", msg: 'User isn\'t driver' });
-    return
-  }
   try {
     let updated
     try {
