@@ -102,7 +102,7 @@ const rate = async (req, res) => {
   try {
     let updated
     try {
-      let result = (await service.getById(req.params.id)).toObject();
+      let result = await service.getById(req.params.id);
 
       const rate = (result.rating.rate * result.rating.count + req.body.qualification) / (result.rating.count + 1)
       const count = result.rating.count + 1;
@@ -130,7 +130,7 @@ const deleteById = async (req, res) => {
 
 const makeVIP = async (req, res) => {
   try {
-    const result = (await service.getById(req.headers.user)).toObject();
+    const result = await service.getById(req.headers.user);
     if (result.vip) {
       return res.status(400).send({ err: "INVALID_OPERATION", msg: 'User is already VIP' });
     }
