@@ -1,6 +1,7 @@
 const { default: mongoose } = require('mongoose');
 const service = require('../service/driverService');
 const logger = require('../utils/winston');
+const walletService = require('../service/walletService');
 
 const createErrorResponse = (error) => {
   logger.error(error);
@@ -134,6 +135,7 @@ const makeVIP = async (req, res) => {
     if (result.vip) {
       return res.status(400).send({ err: "INVALID_OPERATION", msg: 'User is already VIP' });
     }
+    await walletService.payVIP(req.headers.user)
     const updated = await service.makeVIP(req.headers.user);
     return res.status(200).send(updated);
   } catch (error) {
