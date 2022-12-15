@@ -1,6 +1,8 @@
 jest.mock('../model/driverModel');
+jest.mock('axios');
 const supertest = require('supertest');
 const Driver = require('../model/driverModel');
+const axios = require('axios');
 const app = require('../app');
 
 const request = supertest(app);
@@ -132,6 +134,7 @@ describe('A call to make the driver VIP', () => {
     const testDriverData = createExampleDriverData(1)[0];
     testDriverData.vip = false;
     Driver.findById.mockImplementation(() => testDriverData);
+    axios.mockResolvedValueOnce({data: {id: 'testWalletId'}});
     const response = await request
     .patch('/driver/vip')
     .set({

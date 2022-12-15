@@ -14,15 +14,8 @@ const payVIP = async (id) => {
     }
   }
   let walletId;
-  await axios(axiosCFG)
-    .then((response) => {
-      walletId = response.data.id;
-    })
-    .catch((error) => {
-      return res
-        .status(error.response.status)
-        .json({err: error.response.data.err, msg: error.response.data.msg})
-    });
+  const axiosRes = await axios(axiosCFG)
+  walletId = axiosRes.data.id;
   return walletId
 };
 
